@@ -130,13 +130,11 @@ while place_order:
                 print(f'customer input is now an {type(customer_input)}')
 
                 # 4. Check if the menu selection is in the menu items
-                #commit test
-                #print(f'{int(menu_category_name)}')
-                
-                # #if customer_input in len(menu_category_name.keys):
+                if customer_input in menu_items.keys():
+                    
                     # Store the item name as a variable
-                 #   customer_var = customer_input
-                  #  print(f"Thanks for choosing {customer_var}")
+                    customer_var = customer_input
+                    print(f"Thanks for choosing from the menu. ")
 
                     # Ask the customer for the quantity of the menu item
 
