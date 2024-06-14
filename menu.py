@@ -53,6 +53,7 @@ menu = {
 # 1. Set up order list. Order list will store a list of dictionaries for
 # menu item name, item price, and quantity ordered
 customer_order = []
+num_cust_orders = 0
 
 # Launch the store and present a greeting to the customer
 print("Welcome to the variety food truck.")
@@ -122,7 +123,7 @@ while place_order:
 
             # 3. Check if the customer typed a number
             if customer_input.isdigit():
-                print("Thank you for entering a number.")
+                print("Thank you for selecting a number.")
 
 
                 # Convert the menu selection to an integer
@@ -137,19 +138,28 @@ while place_order:
                     print(f"Thanks for choosing from the menu. ")
 
                     # Ask the customer for the quantity of the menu item
-
+                    cust_qty = input("Please enter how many you would like. ")
 
                     # Check if the quantity is a number, default to 1 if not
-
-
-                    # Add the item name, price, and quantity to the order list
-
-
+                    if cust_qty.isdigit():
+                        print(f"Thank you for selecting quantity {cust_qty}")
                     # Tell the customer that their input isn't valid
+                    else:
+                        cust_qty = 1
+                        print("Sorry, that's not a valid number. I'll assume you meant 1. ")
 
-
+                        # Add the item name, price, and quantity to the order list
+                        # for item in customer_order:
+                    customer_order.append(
+                        {"item name": "name",
+                        "Price": 5.55, #float(price),
+                        "Quantity": int(cust_qty)
+                        })
+                    print(customer_order)
+                    num_cust_orders += 1
                 # Tell the customer they didn't select a menu option
-
+                else:
+                    print("Sorry, your entry is not on the menu." )
         else:
             # Tell the customer they didn't select a menu option
             print(f"{menu_category} was not a menu option.")
