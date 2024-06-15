@@ -133,14 +133,12 @@ while place_order:
                 if menu_selection in menu_items.keys():
                     
                     # Store the item name as a variable
-                    # Right Here Danielle
-                    # print(menu_items)
-                    # menu_value = menu_items[menu_selection["Item name"]]
-                    # print(f"Thanks for choosing {menu_value} from the menu. ")
-                    
+                    print(menu_items)
+                    menu_value = menu_items[menu_selection]["Item name"]
+                    print(f"Thanks for choosing {menu_value} from the menu. ")
 
                     # Ask the customer for the quantity of the menu item
-                    quantity = input(f"Please enter how many {menu_items[menu_selection]}s you would like. Your quantity will default to 1 if your input is invalid. ")
+                    quantity = input("Please enter how many you would like. Your quantity will default to 1 if your input is invalid. ")
 
                     # Check if the quantity is a number, default to 1 if not
                     if quantity.isdigit():
@@ -155,8 +153,8 @@ while place_order:
                         # Add the item name, price, and quantity to the order list
                         # for item in customer_order:
                     customer_order.append(
-                        {"item name": "name",
-                        "Price": 5.55, #float(price),
+                        {"Item name": menu_value,
+                        "Price": float(menu_items[menu_selection]["Price"]),
                         "Quantity": int(quantity)
                         })
                     print(customer_order)
