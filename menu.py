@@ -53,7 +53,6 @@ menu = {
 # 1. Set up order list. Order list will store a list of dictionaries for
 # menu item name, item price, and quantity ordered
 customer_order = []
-num_cust_orders = 0
 
 # Launch the store and present a greeting to the customer
 print("Welcome to the variety food truck.")
@@ -158,7 +157,7 @@ while place_order:
                         "Quantity": int(quantity)
                         })
                     print(customer_order)
-                    num_cust_orders += 1
+                    
                 # Tell the customer they didn't select a menu option
                 else:
                     print(f"Sorry, your entry, {menu_selection}, is not on the menu." )
@@ -203,20 +202,38 @@ print("This is what we are preparing for you.\n")
 print("Item name                 | Price  | Quantity")
 print("--------------------------|--------|----------")
 
-# 6. Loop through the items in the customer's order
+##print(customer_order)
 
+# 6. Loop through the items in the customer's order
+order_sum = 0
+
+for order_index in range(len(customer_order)):
     # 7. Store the dictionary items as variables
+
+    order_item_name = customer_order[order_index]["Item name"]
+    # print(order_item_name)
+    order_item_price = customer_order[order_index]["Price"]
+    #price_length = len(str(order_item_price))
+    # print(order_item_price)
+    order_item_qty = customer_order[order_index]["Quantity"]
+    # print(order_item_qty)
 
 
     # 8. Calculate the number of spaces for formatted printing
+    num_item_spaces_1 = 24 - len(order_item_name)
+    item_spaces_1 = " " * num_item_spaces_1
+    num_item_spaces_2 = 5 - len(str(order_item_price))
+    item_spaces_2 = " " * num_item_spaces_2
 
 
     # 9. Create space strings
-
+    # This task was completed above in #8
 
     # 10. Print the item name, price, and quantity
-
+    print(f"{order_item_name} {item_spaces_1} | ${order_item_price}{item_spaces_2} |    {order_item_qty}")
 
 # 11. Calculate the cost of the order using list comprehension
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
+    # for item_sum in customer_order[item_sum]["Price"]:
+    #     order_sum = sum(order_sum, item_sum)
