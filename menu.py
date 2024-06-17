@@ -161,6 +161,9 @@ while place_order:
                 # Tell the customer they didn't select a menu option
                 else:
                     print(f"Sorry, your entry, {menu_selection}, is not on the menu." )
+            else:
+                # Tell the customer they didn't select a number
+                print(f"'{menu_selection}' is not a number. Please try again. ")  
         else:
             # Tell the customer they didn't select a menu option
             print(f"{menu_selection} was not a menu option.")
@@ -235,5 +238,9 @@ for order_index in range(len(customer_order)):
 # 11. Calculate the cost of the order using list comprehension
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
-    # for item_sum in customer_order[item_sum]["Price"]:
-    #     order_sum = sum(order_sum, item_sum)
+
+item_totals = []
+item_totals = [x["Price"] * x["Quantity"] for x in customer_order]
+print(item_totals)
+order_sum = sum([round(float_num,2) for float_num in item_totals])
+print(f"Your order total comes to ${order_sum}. ")
